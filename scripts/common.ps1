@@ -1,7 +1,8 @@
 #requires -Version 5.1
 param()
 $ErrorActionPreference = 'Stop'
-$projectDir = "$env:HOME\Documents\ZZ2\TpCsharp\projet_clicker_cs\GameServerApi"
+$projectDir = "$env:HOME\Documents\ZZ2\TpCsharp\projet_clicker_cs\GameServerApi\GameServerApi.csproj"
+$projectDirTest = "$env:HOME\Documents\ZZ2\TpCsharp\projet_clicker_cs\GameServerApi.Tests\GameServerApi.Tests.csproj"
 
 # Définir les couleurs pour la sortie (en utilisant les codes ANSI)
 $RED = "`e[31m"
@@ -59,8 +60,11 @@ function format-code {
         return
     }
 
-    $out = dotnet format --no-restore 2>&1
-    $out | ForEach-Object { colorize_line $_ }
+    $out1 = dotnet format "$projectDir"--no-restore 2>&1
+    $out1 | ForEach-Object { colorize_line $_ }
+    
+    $out2 = dotnet format "$projectDirTest"--no-restore 2>&1
+    $out2 | ForEach-Object { colorize_line $_ }
 
     # Vérifier si des fichiers ont été modifiés
     if (git status --porcelain) {
