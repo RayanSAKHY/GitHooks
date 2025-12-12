@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "prepare": "husky install", 
+    "pre-commit": "sh ./pre-commit",
+    "pre-merge-commit": "sh ./pre-merge-commit",
+    "pre-push": "sh ./pre-push"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

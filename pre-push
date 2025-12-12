@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sh "$HOME/Documents/ZZ2/TpCsharp/projet_clicker_cs/.husky/scripts/run.sh"
